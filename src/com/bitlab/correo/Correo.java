@@ -59,5 +59,14 @@ public class Correo {
         }
 
     }
+    //Metodo para generar el codigo de seguridad random.
+    public String codigoSeguridadToken(int codigo){
+        StringBuilder generador = new StringBuilder();
+        while (codigo-- != 0) {
+            int caracter = (int)(Math.random()*DatosCorreo.getCODIGO_TOKEN().length());
+            generador.append(DatosCorreo.getCODIGO_TOKEN().charAt(caracter));
+        }
+        return generador.toString();
+    }
 
 }
