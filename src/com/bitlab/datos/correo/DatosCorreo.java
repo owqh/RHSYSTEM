@@ -10,6 +10,8 @@ package com.bitlab.datos.correo;
  * @author carlosGodoy
  */
 public class DatosCorreo {
+    
+    private  static final String CODIGO_TOKEN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%+";
     String correo;
     String mensaje;
 
@@ -28,4 +30,9 @@ public class DatosCorreo {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
+
+    public static String getCODIGO_TOKEN() {
+        return CODIGO_TOKEN;
+    }
+    
 }
