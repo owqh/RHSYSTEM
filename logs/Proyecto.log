@@ -2,3 +2,12 @@
 2020-07-01 21:12:35,299 DEBUG com.bitlab.principal.Proyecto4 [main] se esta enviado el mensaje a datosCorreo
 2020-07-01 21:12:35,299 DEBUG com.bitlab.principal.Proyecto4 [main] se empieza con el proceso de envio de correo
 2020-07-01 21:12:47,303 DEBUG com.bitlab.principal.Proyecto4 [main] mostrando el select de la consulta
+2020-07-02 17:47:39,774 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-02 17:47:59,582 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-02 17:48:01,752 DEBUG com.bitlab.principal.Proyecto4 [main] mostrando el select de la consulta 
+
+2020-07-02 17:48:08,820 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-02 17:48:13,066 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-02 17:48:21,571 DEBUG com.bitlab.principal.Proyecto4 [main] se esta apagando el servidor
+2020-07-02 17:48:21,572 DEBUG com.bitlab.principal.Proyecto4 [main] el cliente ha apagado el servidor y el correo ha sido enviado al administrador
+2020-07-02 17:48:22,573 DEBUG com.bitlab.principal.Proyecto4 [main] ¡APAGANDO EL SERVIDOR!
