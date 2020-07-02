@@ -16,6 +16,7 @@ public class Proyecto4 {
      */
     public static void main(String[] args) {
         System.out.println("Prueba 3");
+        System.out.println("Prueba de conexion bit");
     }
     
 }
