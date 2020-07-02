@@ -7,6 +7,7 @@ package com.bitlab.correo;
 
 import com.bitlab.datos.correo.DatosCorreo;
 import com.bitlab.encriptador.Encriptador;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.mail.Email;
@@ -23,7 +24,7 @@ public class Correo {
 
     
 
-    public static void enviarCorreo(DatosCorreo datos) {//UsuarioDeSistema usuario) {
+    public static void enviarCorreo(DatosCorreo datos, Properties prop) {//UsuarioDeSistema usuario) {
 
         String correo = datos.getCorreo();
         //instancia de la clase encriptador que maneja la desencriptacion de los datos
@@ -32,18 +33,18 @@ public class Correo {
         try {
 
             //email.setHostName("smtp.gmail.com");
-            email.setHostName(encriptacionTexto.getTextoDesencriptado("rB0kYXpFh7144bxHVf2kcyIQmJ4fdF0T"));
+            email.setHostName(encriptacionTexto.getTextoDesencriptado(prop.getProperty("setHostN")));
 
-            //email.setSmtpPort(587);
-            email.setSmtpPort(Integer.parseInt(encriptacionTexto.getTextoDesencriptado("RmFIEnU7wGu1d+C5zzeviA==")));
-            //email.setAuthentication("cg518271@gmail.com", "docky2020");
-            email.setAuthentication(encriptacionTexto.getTextoDesencriptado("72F+zT7/Ec3y50C9qqOpgzjS3ljEAOENmXPYKZ+MrVE="),
-                    encriptacionTexto.getTextoDesencriptado("i8LF0xRqHU+1AmVmZ2hQ4W2Z1ohd3FTa"));
+            //email.setSmtpPort
+            email.setSmtpPort(Integer.parseInt(encriptacionTexto.getTextoDesencriptado(prop.getProperty("setSmtpPort"))));
+            //email.setAuthentication
+            email.setAuthentication(encriptacionTexto.getTextoDesencriptado(prop.getProperty("setUser")),
+                    encriptacionTexto.getTextoDesencriptado(prop.getProperty("setPassw")));
             email.setSSLOnConnect(true);
             //correo desde donde se envia
-            email.setFrom("cg518271@gmail.com");
+            email.setFrom(encriptacionTexto.getTextoDesencriptado(prop.getProperty("setEFrom")));
             //Asunto de correo
-            email.setSubject("Credenciales para el acceso");
+            email.setSubject(encriptacionTexto.getTextoDesencriptado(prop.getProperty("setSubj")));
 
             //email.setMsg("hola "+ usuario.getNombre()+" su clave de acceso al sistema es :" + usuario.getClave());
             email.setMsg(datos.getMensaje());
