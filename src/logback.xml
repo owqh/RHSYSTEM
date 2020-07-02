@@ -1,0 +1,37 @@
+<configuration>
+    <property name="HOME_LOG"  value="logs/Proyecto.log"/>
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} %cyan([%t]) %-5level %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+    
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender" > 
+        <file>${HOME_LOG}</file>
+       <append>true</append>
+        <inmediateFlush>true</inmediateFlush>
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender>
+    
+    
+    
+    
+
+    <logger name="com.bitlab.correo" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+       
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+
+    </root>
+
+</configuration>

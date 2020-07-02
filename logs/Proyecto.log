@@ -1,0 +1,4 @@
+2020-07-01 21:12:31,270 DEBUG com.bitlab.principal.Proyecto4 [main] se esta enviado el correo a datosCorreo
+2020-07-01 21:12:35,299 DEBUG com.bitlab.principal.Proyecto4 [main] se esta enviado el mensaje a datosCorreo
+2020-07-01 21:12:35,299 DEBUG com.bitlab.principal.Proyecto4 [main] se empieza con el proceso de envio de correo
+2020-07-01 21:12:47,303 DEBUG com.bitlab.principal.Proyecto4 [main] mostrando el select de la consulta
