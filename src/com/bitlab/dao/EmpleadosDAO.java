@@ -21,21 +21,35 @@ import java.util.List;
  */
 public class EmpleadosDAO {
 
-    public List<Empleado> obtenerTodoDatos() throws ClassNotFoundException, SQLException, IOException {
-        String sql = "select * from employees LIMIT 10";
+   public List<Empleado> obtenerTodoDatos() throws ClassNotFoundException, SQLException, IOException {
+        String sql = "SELECT * FROM APL_EMP_EMPLEADO LIMIT 100";
         Connection con = AbrirConexion();
 //        Statement st = con.createStatement();
         ResultSet rs = con.createStatement().executeQuery(sql);
 
         List<Empleado> empleado = new ArrayList<>();
         while (rs.next()) {
-            empleado.add(new Empleado(rs.getInt("emp_no"),
-                    rs.getDate("birth_date"),
-                    rs.getString("first_name"),
-                    rs.getString("last_name"),
-                    rs.getString("gender"),
-                    rs.getDate("hire_date")));
+//            empleado.add(new Empleado(rs.getInt("emp_no"),
+//                    rs.getDate("birth_date"),
+//                    rs.getString("first_name"),
+//                    rs.getString("last_name"),
+//                    rs.getString("gender"),
+//                    rs.getDate("hire_date")));
 
+               empleado.add(new Empleado(rs.getInt("EMP_ID"), 
+                       rs.getString("EMP_NOMBRE"),
+                       rs.getString("EMP_APELLIDO"),
+                       rs.getString("EMP_CORREO"),
+                       rs.getString("EMP_TELEFONO"),
+                       rs.getString("EMP_DUI"),
+                       rs.getString("EMP_DIRECCION"),
+                       rs.getDate("EMP_FECHA_NAC"),
+                       rs.getDate("EMP_FECHA_CONTRATO"),
+                       rs.getInt("SEX_ID"),
+                       rs.getInt("EEM_ID"),
+                       rs.getInt("ECI_ID"),
+                       rs.getInt("DEP_ID"),
+                       rs.getInt("CAR_ID")));
         }
         rs.close();
         con.close();
@@ -43,3 +57,5 @@ public class EmpleadosDAO {
 
     }
 }
+        
+       

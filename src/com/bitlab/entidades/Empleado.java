@@ -12,21 +12,36 @@ import java.sql.Date;
  * @author carlosGodoy
  */
 public class Empleado {
-
     private int id_empleado;
-    private Date fecha_cumple;
-    private String Nombre_empleado;
+    private String nombre_empleado;
     private String apellido_empleado;
-    private String genero_empleado;
-    private Date fecha_contra;
+    private String correo_empleado;
+    private String telefono_empleado;
+    private String dui_empleado;
+    private String direccion_empleado;
+    private Date fecha_nac_empleado;
+    private Date fecha_contrat_empleado;
+    private int sexIDempleado_fk;
+    private int estadoEmpleado_fk;
+    private int estadoCivil_empleado_fk;
+    private int deparID_empleado_fk;
+    private int cargoID_empleado_fk;
 
-    public Empleado(int id_empleado, Date fecha_cumple, String Nombre_empleado, String apellido_empleado, String genero_empleado, Date fecha_contra) {
+    public Empleado(int id_empleado, String nombre_empleado, String apellido_empleado, String correo_empleado, String telefono_empleado, String dui_empleado, String direccion_empleado, Date fecha_nac_empleado, Date fecha_contrat_empleado, int sexIDempleado_fk, int estadoEmpleado_fk, int estadoCivil_empleado_fk, int deparID_empleado_fk, int cargoID_empleado_fk) {
         this.id_empleado = id_empleado;
-        this.fecha_cumple = fecha_cumple;
-        this.Nombre_empleado = Nombre_empleado;
+        this.nombre_empleado = nombre_empleado;
         this.apellido_empleado = apellido_empleado;
-        this.genero_empleado = genero_empleado;
-        this.fecha_contra = fecha_contra;
+        this.correo_empleado = correo_empleado;
+        this.telefono_empleado = telefono_empleado;
+        this.dui_empleado = dui_empleado;
+        this.direccion_empleado = direccion_empleado;
+        this.fecha_nac_empleado = fecha_nac_empleado;
+        this.fecha_contrat_empleado = fecha_contrat_empleado;
+        this.sexIDempleado_fk = sexIDempleado_fk;
+        this.estadoEmpleado_fk = estadoEmpleado_fk;
+        this.estadoCivil_empleado_fk = estadoCivil_empleado_fk;
+        this.deparID_empleado_fk = deparID_empleado_fk;
+        this.cargoID_empleado_fk = cargoID_empleado_fk;
     }
 
     public Empleado() {
@@ -40,20 +55,12 @@ public class Empleado {
         this.id_empleado = id_empleado;
     }
 
-    public Date getFecha_cumple() {
-        return fecha_cumple;
-    }
-
-    public void setFecha_cumple(Date fecha_cumple) {
-        this.fecha_cumple = fecha_cumple;
-    }
-
     public String getNombre_empleado() {
-        return Nombre_empleado;
+        return nombre_empleado;
     }
 
-    public void setNombre_empleado(String Nombre_empleado) {
-        this.Nombre_empleado = Nombre_empleado;
+    public void setNombre_empleado(String nombre_empleado) {
+        this.nombre_empleado = nombre_empleado;
     }
 
     public String getApellido_empleado() {
@@ -64,25 +71,98 @@ public class Empleado {
         this.apellido_empleado = apellido_empleado;
     }
 
-    public String getGenero_empleado() {
-        return genero_empleado;
+    public String getCorreo_empleado() {
+        return correo_empleado;
     }
 
-    public void setGenero_empleado(String genero_empleado) {
-        this.genero_empleado = genero_empleado;
+    public void setCorreo_empleado(String correo_empleado) {
+        this.correo_empleado = correo_empleado;
     }
 
-    public Date getFecha_contra() {
-        return fecha_contra;
+    public String getTelefono_empleado() {
+        return telefono_empleado;
     }
 
-    public void setFecha_contra(Date fecha_contra) {
-        this.fecha_contra = fecha_contra;
+    public void setTelefono_empleado(String telefono_empleado) {
+        this.telefono_empleado = telefono_empleado;
+    }
+
+    public String getDui_empleado() {
+        return dui_empleado;
+    }
+
+    public void setDui_empleado(String dui_empleado) {
+        this.dui_empleado = dui_empleado;
+    }
+
+    public String getDireccion_empleado() {
+        return direccion_empleado;
+    }
+
+    public void setDireccion_empleado(String direccion_empleado) {
+        this.direccion_empleado = direccion_empleado;
+    }
+
+    public Date getFecha_nac_empleado() {
+        return fecha_nac_empleado;
+    }
+
+    public void setFecha_nac_empleado(Date fecha_nac_empleado) {
+        this.fecha_nac_empleado = fecha_nac_empleado;
+    }
+
+    public Date getFecha_contrat_empleado() {
+        return fecha_contrat_empleado;
+    }
+
+    public void setFecha_contrat_empleado(Date fecha_contrat_empleado) {
+        this.fecha_contrat_empleado = fecha_contrat_empleado;
+    }
+
+    public int getSexIDempleado_fk() {
+        return sexIDempleado_fk;
+    }
+
+    public void setSexIDempleado_fk(int sexIDempleado_fk) {
+        this.sexIDempleado_fk = sexIDempleado_fk;
+    }
+
+    public int getEstadoEmpleado_fk() {
+        return estadoEmpleado_fk;
+    }
+
+    public void setEstadoEmpleado_fk(int estadoEmpleado_fk) {
+        this.estadoEmpleado_fk = estadoEmpleado_fk;
+    }
+
+    public int getEstadoCivil_empleado_fk() {
+        return estadoCivil_empleado_fk;
+    }
+
+    public void setEstadoCivil_empleado_fk(int estadoCivil_empleado_fk) {
+        this.estadoCivil_empleado_fk = estadoCivil_empleado_fk;
+    }
+
+    public int getDeparID_empleado_fk() {
+        return deparID_empleado_fk;
+    }
+
+    public void setDeparID_empleado_fk(int deparID_empleado_fk) {
+        this.deparID_empleado_fk = deparID_empleado_fk;
+    }
+
+    public int getCargoID_empleado_fk() {
+        return cargoID_empleado_fk;
+    }
+
+    public void setCargoID_empleado_fk(int cargoID_empleado_fk) {
+        this.cargoID_empleado_fk = cargoID_empleado_fk;
     }
 
     @Override
     public String toString() {
-        return "Empleado{" + "id_empleado=" + id_empleado + ", fecha_cumple=" + fecha_cumple + ", Nombre_empleado=" + Nombre_empleado + ", apellido_empleado=" + apellido_empleado + ", genero_empleado=" + genero_empleado + ", fecha_contra=" + fecha_contra + '}';
+        return "Empleado{" + "id_empleado=" + id_empleado + ", nombre_empleado=" + nombre_empleado + ", apellido_empleado=" + apellido_empleado + ", correo_empleado=" + correo_empleado + ", telefono_empleado=" + telefono_empleado + ", dui_empleado=" + dui_empleado + ", direccion_empleado=" + direccion_empleado + ", fecha_nac_empleado=" + fecha_nac_empleado + ", fecha_contrat_empleado=" + fecha_contrat_empleado + ", sexIDempleado_fk=" + sexIDempleado_fk + ", estadoEmpleado_fk=" + estadoEmpleado_fk + ", estadoCivil_empleado_fk=" + estadoCivil_empleado_fk + ", deparID_empleado_fk=" + deparID_empleado_fk + ", cargoID_empleado_fk=" + cargoID_empleado_fk + '}';
     }
+    
 
 }
