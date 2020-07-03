@@ -31,4 +31,10 @@ public class ConexionBD {
                 encriptar.getTextoDesencriptado((String) prop.get("UR")),
                 encriptar.getTextoDesencriptado((String) prop.get("PD")));
     }
+    
+    //Metodo para cerrar las conexiones.
+    public static void CerrandoConexion(Connection con) throws SQLException{
+        if(con!=null && !con.isClosed())
+            con.close();
+    }
 }
