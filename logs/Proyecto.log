@@ -24,3 +24,8 @@
 2020-07-02 19:38:51,428 DEBUG com.bitlab.principal.Proyecto4 [main] se esta apagando el servidor
 2020-07-02 19:38:51,429 DEBUG com.bitlab.principal.Proyecto4 [main] el cliente ha apagado el servidor y el correo ha sido enviado al administrador
 2020-07-02 19:38:52,430 DEBUG com.bitlab.principal.Proyecto4 [main] ¡APAGANDO EL SERVIDOR!
+2020-07-03 12:00:08,654 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 12:00:51,364 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 12:01:22,939 DEBUG com.bitlab.principal.Proyecto4 [main] se esta apagando el servidor
+2020-07-03 12:01:22,939 DEBUG com.bitlab.principal.Proyecto4 [main] el cliente ha apagado el servidor y el correo ha sido enviado al administrador
+2020-07-03 12:01:23,943 DEBUG com.bitlab.principal.Proyecto4 [main] ¡APAGANDO EL SERVIDOR!

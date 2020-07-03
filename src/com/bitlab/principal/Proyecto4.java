@@ -37,6 +37,7 @@ public class Proyecto4 {
           //instancias
         Properties prop = new Properties();
         Encriptador encriptar = new Encriptador();
+        EmpleadosDAO empDao = new EmpleadosDAO();
         String opcionCliente = "";
 
         try {
@@ -71,15 +72,7 @@ public class Proyecto4 {
 
                         switch (opcionCliente) {
                             case "1":
-                                salida.println("mostrando select");
-                                EmpleadosDAO empDao = new EmpleadosDAO();
-                                logger.debug("mostrando el select de la consulta \n\r");
-
-                                List<Empleado> empleado = empDao.obtenerTodoDatos();
-                                for (Empleado emp : empleado) {
-                                    System.out.println(emp.toString());
-                                    salida.println(emp.toString() + "\n\r");
-                                }
+                                salida.println(empDao.getTodosLosDatos().toString());
 
                                 break;
                             case "5":
