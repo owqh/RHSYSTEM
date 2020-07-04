@@ -5,6 +5,7 @@
  */
 package com.bitlab.utilidades;
 
+import com.bitlab.clienteHilo.ClienteHilo;
 import com.bitlab.encriptador.Encriptador;
 import com.bitlab.principal.Proyecto4;
 import com.bitlab.propiedades.ConfigProperties;
@@ -95,7 +96,7 @@ public class FuncionesPricipales {
             do {   
                   System.out.println("Digite el codigo que recibio en su correo electronico: ");
                   String codigoUsuario = scanner.nextLine();
-                   if (codigo.equalsIgnoreCase(codigoUsuario)) Proyecto4.menuPrincipal(nombre);
+                   if (codigo.equalsIgnoreCase(codigoUsuario)) ClienteHilo.menuPrincipal(nombre);
                    else {
                        flag = false;
                        System.out.println("Por favor digite el codigo correcto.");
