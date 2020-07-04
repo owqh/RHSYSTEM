@@ -19,7 +19,9 @@ public class DepartamentosDAO extends PatronDAO<Departamentos>{
     @Override
     //Implementacion del metodo desde la super clase 'PatronDAO' para mapear todos los registros de la tabla : APL_DEP_DEPARTAMENTO
     protected Departamentos getMapeoDeResultados(ResultSet rs) throws SQLException {
-        return new Departamentos(rs.getString("DEP_ID"), rs.getString("DEP_NOMBRE"));
+        return new Departamentos(rs.getString("DEP_ID"), 
+                rs.getString("DEP_NOMBRE"),
+                rs.getString("EDE_ID")    );
     }
     
     @Override
@@ -27,6 +29,7 @@ public class DepartamentosDAO extends PatronDAO<Departamentos>{
     protected void setMapeoParametrosInsertar(PreparedStatement ps, Departamentos entidad) throws SQLException {
         ps.setString(1, entidad.getIdDepartamento());
         ps.setString(2, entidad.getNombreDepartamento());
+        ps.setString(3, entidad.getEdeDepartamento());
     }
     
     @Override
@@ -34,7 +37,8 @@ public class DepartamentosDAO extends PatronDAO<Departamentos>{
     protected void setMapeoParametrosActualizar(PreparedStatement ps, Departamentos entidad) throws SQLException {
         ps.setString(1, entidad.getIdDepartamento());
         ps.setString(2, entidad.getNombreDepartamento());
-        ps.setString(3, entidad.getIdDepartamento());
+        ps.setString(3, entidad.getEdeDepartamento());
+        ps.setString(4, entidad.getIdDepartamento());
     }
     
     
@@ -53,7 +57,7 @@ public class DepartamentosDAO extends PatronDAO<Departamentos>{
     @Override
     //Selecciona las columnas encontrandolas por el nombre indicado.
     protected String[] getColumnasDeLaTabla() {
-        String[] tablaColumnas = {"DEP_ID","DEP_NOMBRE"};
+        String[] tablaColumnas = {"DEP_ID","DEP_NOMBRE","EDE_ID"};
         return tablaColumnas;
     }
 

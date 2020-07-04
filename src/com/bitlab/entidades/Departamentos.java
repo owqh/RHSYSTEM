@@ -59,6 +59,7 @@ public class Departamentos {
         StringBuilder sb = new StringBuilder();
         sb.append(" || ID_Departamento: ").append(idDepartamento);
         sb.append(" || Nombre_Departamento: ").append(nombreDepartamento);
+        sb.append(" || Estado_Departamento: ").append(edeDepartamento);
         
         return sb.toString();
     }  
