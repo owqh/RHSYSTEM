@@ -31,3 +31,24 @@
 2020-07-03 12:01:23,943 DEBUG com.bitlab.principal.Proyecto4 [main] ¡APAGANDO EL SERVIDOR!
 2020-07-03 16:18:28,982 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
 2020-07-03 16:24:02,511 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:11:46,896 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:11:55,820 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:12:01,536 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:12:56,364 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:13:01,613 DEBUG com.bitlab.principal.Proyecto4 [main] se esta apagando el servidor
+2020-07-03 21:13:01,613 DEBUG com.bitlab.principal.Proyecto4 [main] el cliente ha apagado el servidor y el correo ha sido enviado al administrador
+2020-07-03 21:13:02,615 DEBUG com.bitlab.principal.Proyecto4 [main] ¡APAGANDO EL SERVIDOR!
+2020-07-03 21:18:26,068 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:18:27,684 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:18:52,398 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:18:52,399 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:26:45,418 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:27:00,454 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:29:16,617 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:29:20,564 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:32:33,710 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:32:40,339 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:33:45,189 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:33:48,810 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-03 21:34:52,349 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-03 21:34:55,189 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
