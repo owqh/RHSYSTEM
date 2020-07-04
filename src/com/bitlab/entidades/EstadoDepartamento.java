@@ -39,7 +39,12 @@ public class EstadoDepartamento {
 
     @Override
     public String toString() {
-        return "EstadoDepartamento{" + "id_EstadoDepartament=" + id_EstadoDepartament + ", nombre_EstadoDepartamento=" + nombre_EstadoDepartamento + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Estado_despartamento ").append(id_EstadoDepartament);
+        sb.append(" || Estado_Departamento: ").append(nombre_EstadoDepartamento);
+        
+        return sb.toString();
     }
     
 }

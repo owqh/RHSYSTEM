@@ -70,8 +70,17 @@ public class Salario {
     }
 
     @Override
-    public String toString() {
-        return "Salario{" + "id_salario=" + id_salario + ", salario=" + salario + ", fechaInicioSalario=" + fechaInicioSalario + ", fechaFinSalario=" + fechaFinSalario + ", idEmpleadoFK=" + idEmpleadoFK + '}';
+    public String toString(){
+            
+            StringBuilder sb = new StringBuilder();
+            sb.append(" || ID_Salario: ").append(id_salario);
+            sb.append(" || Salario: ").append(salario);
+            sb.append(" || Fecha_Inicio_Salario: : ").append(fechaInicioSalario);
+            sb.append(" || Fecha_Fin_Salario: ").append(fechaFinSalario);
+            sb.append(" || ID_Empleado_fk: ").append(idEmpleadoFK);
+            sb.append("\n");
+    
+    return sb.toString();
     }
     
     

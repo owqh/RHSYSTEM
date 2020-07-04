@@ -39,7 +39,12 @@ public class EstadoEmpleado {
 
     @Override
     public String toString() {
-        return "EstadoEmpleado{" + "id_EstadoEmpleado=" + id_EstadoEmpleado + ", nombreEstadoEmpleado=" + nombreEstadoEmpleado + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Estado_Empleado: ").append(id_EstadoEmpleado);
+        sb.append(" || Estado_Empleado: ").append(nombreEstadoEmpleado);
+        
+        return sb.toString();
     }
     
     

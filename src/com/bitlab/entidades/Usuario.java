@@ -76,6 +76,21 @@ public class Usuario {
     public void setTipo_id_fk(int tipo_id_fk) {
         this.tipo_id_fk = tipo_id_fk;
     }
+
+    @Override
+    public String toString() {
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Usuario: ").append(id_usuario);
+        sb.append(" || Acceso_Usuario: ").append(acceso_usuario);
+        sb.append(" || Nombre_Usuario: ").append(nombre_usuario);
+        sb.append(" || Apellido_Usuario: ").append(apellido_usuario);
+        sb.append(" || Contraseña: ").append(contra_usuario);
+        sb.append(" || Tipo_ID: ").append(tipo_id_fk);
+        sb.append("\n");
+        
+        return sb.toString();
+    }
     
     
     

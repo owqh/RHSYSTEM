@@ -91,7 +91,16 @@ public class Planilla {
 
     @Override
     public String toString() {
-        return "Planilla{" + "id_planilla=" + id_planilla + ", afpPatronal=" + afpPatronal + ", afpLaboral=" + afpLaboral + ", isssPatronal=" + isssPatronal + ", isssLaboral=" + isssLaboral + ", renta=" + renta + ", id_empleado_fk=" + id_empleado_fk + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Planilla: ").append(id_planilla);
+        sb.append(" || AFP_Patronal: ").append(afpPatronal);
+        sb.append(" || AFP_Laboral: ").append(afpLaboral);
+        sb.append(" || ISSS_Patronal: ").append(isssPatronal);
+        sb.append(" || ISSS_Laboral ").append(isssLaboral);
+        sb.append("\n");
+        
+        return sb.toString();
     }
     
 }

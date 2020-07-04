@@ -39,7 +39,12 @@ public class SexoEmpleado {
 
     @Override
     public String toString() {
-        return "SexoEmpleado{" + "id_sexoEmpleado=" + id_sexoEmpleado + ", nombreSexoEmpleado=" + nombreSexoEmpleado + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Sexo_Empleado: ").append(id_sexoEmpleado);
+        sb.append(" || Sexo_Empleado: ").append(nombreSexoEmpleado);
+        
+        return sb.toString();
     }
     
     

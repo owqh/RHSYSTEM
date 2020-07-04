@@ -39,7 +39,12 @@ public class EstadoCivil {
 
     @Override
     public String toString() {
-        return "EstadoCivil{" + "id_estadoCivil=" + id_estadoCivil + ", nombreEstadoCivil=" + nombreEstadoCivil + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Estado_Civi: ").append(id_estadoCivil);
+        sb.append(" || Estado_Civil: ").append(nombreEstadoCivil);
+        
+        return sb.toString();
     }
     
     

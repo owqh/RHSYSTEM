@@ -39,7 +39,12 @@ public class TipoUsuario {
 
     @Override
     public String toString() {
-        return "TipoUsuario{" + "id_TipoUsuario=" + id_TipoUsuario + ", nombreTipoUsuario=" + nombreTipoUsuario + '}';
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" || ID_Tipo_Usuario: ").append(id_TipoUsuario);
+        sb.append(" || Tipo_Usuario: ").append(nombreTipoUsuario);
+        
+        return sb.toString();
     }
     
 }
