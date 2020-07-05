@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package com.bitlab.conexion;
 
 import com.bitlab.encriptador.Encriptador;
@@ -19,14 +19,17 @@ import java.util.Properties;
  * @author carlosGodoy
  */
 public class ConexionBD {
+    
+    private static String nombreFicheroPropiedades = "config.properties";
+    private static Properties prop = new Properties();
+    public static Encriptador encriptar = new Encriptador();
+    
 
-    public static Connection AbrirConexion() throws ClassNotFoundException, SQLException, IOException {
-        Encriptador encriptar = new Encriptador();
-        Properties prop = new Properties();
-        String nombreFicheroPropiedades = "config.properties";
+    public static Connection AbrirConexion() throws ClassNotFoundException, SQLException, IOException { 
+        
         prop.load(ConfigProperties.getResourceAsInputStream(nombreFicheroPropiedades));
         Class.forName(encriptar.getTextoDesencriptado((String) prop.get("DR")));
-
+        
         return DriverManager.getConnection(encriptar.getTextoDesencriptado((String) prop.get("UL")),
                 encriptar.getTextoDesencriptado((String) prop.get("UR")),
                 encriptar.getTextoDesencriptado((String) prop.get("PD")));
@@ -37,4 +40,14 @@ public class ConexionBD {
         if(con!=null && !con.isClosed())
             con.close();
     }
+    
+    public static String getNombreFicheroPropiedades() {
+        return nombreFicheroPropiedades;
+    }
+    
+    public static Properties getProp() {
+        return prop;
+    }
+    
+    
 }

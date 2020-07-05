@@ -88,7 +88,13 @@ public class ClienteHilo extends Thread {
                             break;
                         case "2":
                             
-                            salida.println("Pendiente...");
+                            salida.println(" ||------------------------------------------- ||\n\r");
+                            salida.println(" || 1. Ver todos los empleados                 ||\n\r");
+                            salida.println(" || 2. Ver datos de un empleado                ||\n\r");
+                            salida.println(" || 3. Eliminar empleado                       ||\n\r");
+                            salida.println(" || 4. Actualizar estado de empleado           ||\n\r");
+                            salida.println(" || 5. salir                                   ||\n\r");
+                            salida.println(" || -------------------------------------------||\n\r");
                             
                             break;
                         case "3":
@@ -102,7 +108,7 @@ public class ClienteHilo extends Thread {
                             
                             do{
                                 salida.println(" ||------------------------------------------- ||\n\r");
-                                salida.println(" || 1. Ver todos los usuarios                ||\n\r");
+                                salida.println(" || 1. Ver todos los usuarios                  ||\n\r");
                                 salida.println(" || 2. Ver datos de un usuario                 ||\n\r");
                                 salida.println(" || 3. Eliminar usuario                        ||\n\r");
                                 salida.println(" || 4. Actualizar usuario                      ||\n\r");
@@ -116,7 +122,7 @@ public class ClienteHilo extends Thread {
                                 
                                 if ("1".equals(seleccion)){
                                     salida.println(usuarioDAO.getTodosLosDatos());
-       
+                                    
                                 }else if ("2".equals(seleccion)){
                                     salida.println("Ingrese el ID del usuario a verificar");
                                     idUsuario = entrada.readLine();
@@ -126,7 +132,8 @@ public class ClienteHilo extends Thread {
                                     salida.println("Ingrese el ID del usuario a eliminar");
                                     idUsuario = entrada.readLine();
                                     Usuario u = usuarioDAO.getDatosPorID(idUsuario);
-                                    salida.println("Se eliminara el usuario: "+u.getNombre_usuario()+" "+u.getApellido_usuario());
+                                    salida.println("Se eliminara el usuario: "+u.getNombre_usuario()+" "+u.getApellido_usuario()+
+                                            ", email_acceso: "+u.getAcceso_usuario());
                                     
                                 }else if ("4".equals(seleccion)) {
                                     salida.println("Ingrese ID del usuario a actualizar");
@@ -138,11 +145,16 @@ public class ClienteHilo extends Thread {
                                     salida.println("Appellido actual de usuario: "+u.getApellido_usuario());
                                     salida.println("Ingrese el Apellido que lo reemplazara: ");
                                     String nuevoApellido = entrada.readLine();
+                                    salida.println("Acceso actual de usuario: "+u.getAcceso_usuario());
+                                    salida.println("Ingrese el Email de acceso que lo reemplazara: ");
+                                    String nuevoacceso = entrada.readLine();
+                                    
+                                    u.setAcceso_usuario(nuevoacceso);
                                     u.setNombre_usuario(nuevoNombre);
                                     u.setApellido_usuario(nuevoApellido);
                                     usuarioDAO.ActualizarDatos(u);
-                                    salida.println("Nombre usuario actualizado a: "+u.getNombre_usuario().toString()+" "
-                                            + ""+u.getApellido_usuario().toString());
+                                    salida.println("Nombre usuario actualizado a: "+u.getNombre_usuario()+" "+
+                                            u.getApellido_usuario()+", Email_Acceso: "+u.getAcceso_usuario());
                                     
                                 }else if("5".equals(seleccion)){
                                     Usuario u = null;

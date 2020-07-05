@@ -5,11 +5,8 @@
  */
 package com.bitlab.dao;
 
-import com.bitlab.conexion.ConexionBD;
-import static com.bitlab.conexion.ConexionBD.AbrirConexion;
+
 import com.bitlab.entidades.Usuario;
-import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

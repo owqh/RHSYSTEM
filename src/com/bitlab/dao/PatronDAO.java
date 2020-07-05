@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public abstract class PatronDAO <T> {
     
-    private static Logger log = Logger.getLogger(PatronDAO.class.getSimpleName());
+    public static Logger log = Logger.getLogger(PatronDAO.class.getSimpleName());
     
     public final int LIMITE_DATOS = 100;
     
@@ -30,6 +30,8 @@ public abstract class PatronDAO <T> {
     public final String BD_INSERT = "INSERT INTO [TABLE] ([COLUMNS]) VALUES ([COLUMNS_INDEX])";
     public final String BD_DELETE = "DELETE FROM [TABLE] WHERE [CONDITIONS]";
     public final String BD_UPDATE = "UPDATE [TABLE] SET [COLUMNS] WHERE [CONDITIONS]";
+    
+    
     
     //Indicador de tabla
     private final String INDICADOR_TABLA = "[TABLE]";
@@ -193,7 +195,7 @@ public abstract class PatronDAO <T> {
     }
     
     //Metodo para actualizar registros a una entidad de la base de datos.
-    public void updateData(T entidad) throws ClassNotFoundException, SQLException, IOException{
+    public void ActualizarDatos(T entidad) throws ClassNotFoundException, SQLException, IOException{
         Connection con = getConectando();//Se obtiene la conexión
         PreparedStatement ps = con.prepareStatement(getUpdateSQL());//Se aplica el SQL
         setMapeoParametrosActualizar(ps,entidad);//Se hace el mapeo de la entidad al PreparedStatement
