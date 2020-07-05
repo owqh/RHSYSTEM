@@ -132,8 +132,8 @@ public class Gestiones {
                     case "6":
                         salida.println("Saliendo de Usuarios...");
                         bandera = false;
-                        
                         break;
+                        
                     default:
                         salida.println("Seleccione una opcion valida");
                 }
@@ -169,7 +169,7 @@ public class Gestiones {
         EstadoEmpleadoDAO estadoEmpleadoDAO = new EstadoEmpleadoDAO();
         EstadoEmpleado estadoEntidad = new EstadoEmpleado();
         Validaciones validar = new Validaciones();
-          
+        
         boolean bandera = true;
         int idUsuario = 0;
         try {
@@ -200,11 +200,9 @@ public class Gestiones {
                         
                     case "2":
                         //Ver estado actual de un solo empleado.
-                        EstadoEmpleado estadoE = new EstadoEmpleado();
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : ");
+                        salida.println("Empleado "+estadoEmpleadoDAO.getDatosPorID(idUsuario));
                         
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
-                        estadoEmpleadoDAO.getDatosPorID(idUsuario);
-                        //salida.println("Empleado: "+empleadosEntidad.getNombre_empleado()+" "+ estadoE.getNombreEstadoEmpleado());
                         break;
                         
                     case "3":
@@ -212,13 +210,34 @@ public class Gestiones {
                         idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
                         salida.println(estadoEmpleadoDAO.getDatosPorID(idUsuario));
                         String nuevoEstado = validar.validarString(socketCliente, "Digite el nuevo estado de empleado");
-                        EstadoEmpleado est = estadoEmpleadoDAO.getDatosPorID(idUsuario);
-                        
-                        est.setNombreEstadoEmpleado(nuevoEstado);
-                        estadoEmpleadoDAO.ActualizarDatos(est);
+                        estadoEntidad.setNombreEstadoEmpleado(nuevoEstado);
+                        estadoEmpleadoDAO.ActualizarDatos(estadoEntidad);
                         break;
+                        
                     case "4":
-                        salida.println("Saliendo de tabla de estados");
+                        byte user = 1;
+                        for (EstadoEmpleado us : estadoEmpleadoDAO.getTodosLosDatos()) {
+                            user++;
+                        }
+                        int id_E = user++;
+                        
+                        String nuevoEstadoEmp = validar.validarString( socketCliente, "Ingrese descripción del nuevo estado: ");
+                        EstadoEmpleado es = new EstadoEmpleado(id_E, nuevoEstadoEmp);
+                        estadoEmpleadoDAO.insertDatos(es);
+                        
+                        salida.printf("Estado agregado:\n\rID: %2d\n\rEstado nuevo :%s",es.getId_EstadoEmpleado(),es.getNombreEstadoEmpleado());
+                        break;
+                        
+                    case "5":
+                        //Eliminar un estado de empleado.
+                        byte id_Estado = validar.validarByte(socketCliente, "Ingrese el ID del estado empleado a eliminar : ");
+                        estadoEntidad = estadoEmpleadoDAO.getDatosPorID(id_Estado);
+                        salida.println("Se eliminara el estado: "+estadoEntidad.getNombreEstadoEmpleado());
+                        estadoEmpleadoDAO.EliminarDatos(id_Estado);
+                        break;
+                    case "6":
+                        salida.println("Saliendo de tabla estados de empleado...");
+                        bandera = false;
                         break;
                         
                     default:
