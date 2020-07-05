@@ -81,13 +81,12 @@ public class Usuario {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append(" || ID_Usuario: ").append(id_usuario);
-        sb.append(" || Acceso_Usuario: ").append(acceso_usuario);
-        sb.append(" || Nombre_Usuario: ").append(nombre_usuario);
-        sb.append(" || Apellido_Usuario: ").append(apellido_usuario);
-        sb.append(" || Contraseña: ").append(contra_usuario);
-        sb.append(" || Tipo_ID: ").append(tipo_id_fk);
-        sb.append("\n\r");
+        sb.append("|| ID: ").append(id_usuario).append("\n\r");
+        sb.append(" || Acceso: ").append(acceso_usuario).append("\n\r");
+        sb.append(" || Nombre: ").append(nombre_usuario).append("\n\r");;
+        sb.append(" || Apellido: ").append(apellido_usuario).append("\n\r");;
+        sb.append(" || Contrasena: ").append(contra_usuario).append("\n\r");;
+        sb.append("\n\r\n\r");
         
         return sb.toString();
     }

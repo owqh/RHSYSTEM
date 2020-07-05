@@ -41,8 +41,7 @@ public class EstadoEmpleado {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append(" || ID_Estado_Empleado: ").append(id_EstadoEmpleado);
-        sb.append(" || Estado_Empleado: ").append(nombreEstadoEmpleado);
+        sb.append(id_EstadoEmpleado).append(", ").append(nombreEstadoEmpleado).append("\n\r");
         
         return sb.toString();
     }

@@ -17,8 +17,11 @@ import java.util.*;
 public class Validaciones {
     //Habilitando la clase scanner
     Scanner scanner = new Scanner(System.in);
+    
+    //Habilitando motores de entrada y salida de escritura.
     PrintWriter salida = null;
     BufferedReader entrada = null;
+    
     //Validando que nos ingresen un string
     public String validarString(Socket socketCliente, String opcion) throws IOException {
         salida = new PrintWriter(socketCliente.getOutputStream(), true);
@@ -72,6 +75,7 @@ public class Validaciones {
         }
         return Byte.parseByte(dato);
     }
+    
     /* Validando que nos ingresen un correo valido
     * Matches     joe@aol.com | a@b.c | correo@mail.com | as.asdas@mail.com
     * Non-Matches asdf | 1234
