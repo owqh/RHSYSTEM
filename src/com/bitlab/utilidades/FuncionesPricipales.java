@@ -96,18 +96,18 @@ public class FuncionesPricipales {
             do {   
                   System.out.println("Digite el codigo que recibio en su correo electronico: ");
                   String codigoUsuario = scanner.nextLine();
-                   if (codigo.equalsIgnoreCase(codigoUsuario)) ClienteHilo.menuPrincipal(nombre);
-                   else {
-                       flag = false;
-                       System.out.println("Por favor digite el codigo correcto.");
-                       contador++;
-                       System.out.println("Numero de intentos restantes: " + (3-contador));
-                       if (contador > 2) {
-                           System.out.println("Acceso invalido, saliendo del sistema...");
-                           System.exit(0);
-                           flag = true;
-                       }                       
-                   }
+//                   if (codigo.equalsIgnoreCase(codigoUsuario)) ClienteHilo.menuPrincipal(nombre);
+//                   else {
+//                       flag = false;
+//                       System.out.println("Por favor digite el codigo correcto.");
+//                       contador++;
+//                       System.out.println("Numero de intentos restantes: " + (3-contador));
+//                       if (contador > 2) {
+//                           System.out.println("Acceso invalido, saliendo del sistema...");
+//                           System.exit(0);
+//                           flag = true;
+//                       }                       
+//                   }
             } while (flag != true);
 
             

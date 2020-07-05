@@ -41,8 +41,7 @@ public class TipoUsuario {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append(" || ID_Tipo_Usuario: ").append(id_TipoUsuario);
-        sb.append(" || Tipo_Usuario: ").append(nombreTipoUsuario);
+        sb.append(id_TipoUsuario).append(".\n\r ").append(nombreTipoUsuario);
         
         return sb.toString();
     }

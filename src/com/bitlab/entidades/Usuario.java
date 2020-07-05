@@ -87,7 +87,7 @@ public class Usuario {
         sb.append(" || Apellido_Usuario: ").append(apellido_usuario);
         sb.append(" || Contraseña: ").append(contra_usuario);
         sb.append(" || Tipo_ID: ").append(tipo_id_fk);
-        sb.append("\n");
+        sb.append("\n\r");
         
         return sb.toString();
     }
