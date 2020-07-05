@@ -64,13 +64,13 @@ public class Gestiones {
                         
                     case "2":
                         //Seleccionando un solo usuario por su id
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del usuario a verificar");
-                        salida.println(usuarioDAO.getDatosPorID(idUsuario));
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del usuario a verificar : ");
+                        salida.println("Usuario "+usuarioDAO.getDatosPorID(idUsuario));
                         break;
                         
                     case "3":
                         //Eliminando un usuario.
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del usuario a eliminar");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del usuario a eliminar : ");
                         Usuario u = usuarioDAO.getDatosPorID(idUsuario);
                         salida.println("Se eliminara el usuario: "+u.getNombre_usuario()+" "+u.getApellido_usuario()+
                                 ", email_acceso: "+u.getAcceso_usuario());
@@ -79,7 +79,7 @@ public class Gestiones {
                         
                     case "4":
                         //Actualizando datos de un usuario.
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese ID del usuario a actualizar");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese ID del usuario a actualizar : ");
                         Usuario u2 = usuarioDAO.getDatosPorID(idUsuario);
                         salida.println("Nombre actual de usuario: "+u2.getNombre_usuario());
                         String nuevoNombre = validar.validarString( socketCliente, "Ingrese el nombre que lo reemplazara: ");
@@ -88,34 +88,34 @@ public class Gestiones {
                         salida.println("Acceso actual de usuario: "+u2.getAcceso_usuario());
                         String nuevoacceso = validar.validarCorreo(socketCliente, "Ingrese el Email de acceso que lo reemplazara: ");
                         salida.println("Contrasena actual: "+u2.getContra_usuario());
-                        salida.println("Ingrese una nueva contrasena:");
+                        salida.println("Ingrese una nueva contrasena: ");
                         String nuevacontrasena = entrada.readLine();
                         
                         u2.setAcceso_usuario(nuevoacceso);
                         u2.setNombre_usuario(nuevoNombre);
                         u2.setApellido_usuario(nuevoApellido);
-                        u2.setApellido_usuario(nuevacontrasena);
+                        u2.setContra_usuario(nuevacontrasena);
                         
                         usuarioDAO.ActualizarDatos(u2);
-                        salida.println("Usuario Actualizado!\nNombre nuevo: "+u2.getNombre_usuario()+"\n\rApellido nuevo: "+
-                                u2.getApellido_usuario()+"\n\r Email_Acceso: "+u2.getAcceso_usuario()+"\r\n Contraseña nueva: ");
+                        salida.println("Usuario Actualizado!\n\rNombre nuevo: "+u2.getNombre_usuario()+"\n\rApellido nuevo: "+
+                                u2.getApellido_usuario()+"\n\rEmail_Acceso: "+u2.getAcceso_usuario()+"\r\nContraseña nueva: "+u2.getContra_usuario());
                         break;
                         
                     case "5":
                         //Agregando nuevo usuario a la BD
                         usuarioDAO.getTodosLosDatos();
-                        byte user = 0;
+                        byte user = 1;
                         for (Usuario us : usuarioDAO.getTodosLosDatos()) {
                             user++;
                         }
                         int id_U = user++;
                         
-                        String nombre = validar.validarString( socketCliente, "Ingrese el nombre usuario");
-                        String apellido = validar.validarString( socketCliente, "Ingrese apellido del nuevo usuario");
-                        String correo = validar.validarCorreo(socketCliente, "Ingrese correo del nuevo usuario");
-                        salida.println("Ingrese contraseña del nuevo usuario");
+                        String nombre = validar.validarString( socketCliente, "Ingrese el nombre usuario: ");
+                        String apellido = validar.validarString( socketCliente, "Ingrese apellido del nuevo usuario: ");
+                        String correo = validar.validarCorreo(socketCliente, "Ingrese correo del nuevo usuario: ");
+                        salida.println("Ingrese contraseña del nuevo usuario: ");
                         String contraseña = entrada.readLine();
-                        salida.println("Ingrese tipo de usuario");
+                        salida.println("Ingrese tipo de usuario: ");
                         
                         TipoUsuarioDAO tipoUsuarioDAO = new TipoUsuarioDAO();
                         salida.println(tipoUsuarioDAO.getTodosLosDatos());
@@ -124,7 +124,7 @@ public class Gestiones {
                         Usuario u3 = new Usuario(id_U, correo, nombre, apellido, contraseña, tipoID);
                         usuarioDAO.insertDatos(u3);
                         
-                        salida.printf("ID: %2d Email: %s Nombre: %s Apellido %s Contraseña %s Tipo ID: %2d",
+                        salida.printf("Usuario nuevo agregado:\n\rID: %2d Email: %s, Nombre: %s, Apellido %s, Contrasena %s, Tipo ID: %2d",
                                 u3.getId_usuario(),u3.getAcceso_usuario(),u3.getNombre_usuario(),u3.getApellido_usuario(),
                                 u3.getContra_usuario(),u3.getTipo_id_fk());
                         break;
@@ -167,68 +167,64 @@ public class Gestiones {
     public static void gestionDeEstadoEmpleados(Socket socketCliente) throws IOException, SQLException{
         
         EstadoEmpleadoDAO estadoEmpleadoDAO = new EstadoEmpleadoDAO();
-        Empleado empleadosEntidad = new Empleado();
+        EstadoEmpleado estadoEntidad = new EstadoEmpleado();
         Validaciones validar = new Validaciones();
-        
-        //Habilitando motores de entrada y salida de escritura.
-        PrintWriter salida = null;
-        BufferedReader entrada = null;
-        salida = new PrintWriter(socketCliente.getOutputStream(), true);
-        entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
-        
+          
         boolean bandera = true;
-        
         int idUsuario = 0;
         try {
+            //Habilitando motores de entrada y salida de escritura.
+            salida = new PrintWriter(socketCliente.getOutputStream(), true);
+            entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
             do {
                 
                 //Gestionando estado de los empleados
-//                            salida.println(" _______________________________________________\n\r");
-//                            salida.println(" |°       Tabla estados de empleados          °|\n\r");
-//                            salida.println(" |°|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|°|\n\r");
-//                            salida.println(" |°| 1. Ver todos los estados de empleados   |°|\n\r");
-//                            salida.println(" |°| 2. Ver estado actual de un empleado     |°|\n\r");
-//                            salida.println(" |°| 3. modificar estado de un empleado      |°|\n\r");
-//                            salida.println(" |°| 4. Agregar un estado de empleado        |°|\n\r");
-//                            salida.println(" |°| 5. Eliminar un estado de empleado       |°|\n\r");
-//                            salida.println(" |°| 6. Salir                                |°|\n\r");
-//                            salida.println(" |°|_________________________________________|°|\n\r");
-//                            salida.println(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n\r");
-
-String seleccion = entrada.readLine();
-switch(seleccion){
-    case "1":
-        //ver estado laboral de todos los empleados.
-        salida.println(estadoEmpleadoDAO.getTodosLosDatos());
-        break;
-        
-    case "2":
-        //Ver estado actual de un solo empleado.
-        EstadoEmpleado estadoE = new EstadoEmpleado();
-        
-        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
-        estadoEmpleadoDAO.getDatosPorID(idUsuario);
-        salida.println("Empleado: "+empleadosEntidad.getNombre_empleado()+" "+ estadoE.getNombreEstadoEmpleado());
-        break;
-        
-    case "3":
-        //Actualizar estado de un empleado
-        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
-        salida.println(estadoEmpleadoDAO.getDatosPorID(idUsuario));
-        String nuevoEstado = validar.validarString(socketCliente, "Digite el nuevo estado de empleado");
-        EstadoEmpleado est = estadoEmpleadoDAO.getDatosPorID(idUsuario);
-        
-        est.setNombreEstadoEmpleado(nuevoEstado);
-        estadoEmpleadoDAO.ActualizarDatos(est);
-        break;
-    case "4":
-        salida.println("Saliendo de tabla de estados");
-        break;
-        
-    default:
-        salida.println("Ingrese una opcion valida.");
-}
-
+                salida.println(" _______________________________________________\n\r");
+                salida.println(" |*       Tabla estados de empleados          °|\n\r");
+                salida.println(" |*|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|°|\n\r");
+                salida.println(" |*| 1. Ver todos los estados de empleados   |°|\n\r");
+                salida.println(" |*| 2. Ver estado actual de un empleado     |°|\n\r");
+                salida.println(" |°| 3. modificar estado de un empleado      |°|\n\r");
+                salida.println(" |°| 4. Agregar un estado de empleado        |°|\n\r");
+                salida.println(" |°| 5. Eliminar un estado de empleado       |°|\n\r");
+                salida.println(" |°| 6. Salir                                |°|\n\r");
+                salida.println(" |°|_________________________________________|°|\n\r");
+                salida.println(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n\r");
+                
+                String seleccion = entrada.readLine();
+                switch(seleccion){
+                    case "1":
+                        //ver estado laboral de todos los empleados.
+                        salida.println(estadoEmpleadoDAO.getTodosLosDatos());
+                        break;
+                        
+                    case "2":
+                        //Ver estado actual de un solo empleado.
+                        EstadoEmpleado estadoE = new EstadoEmpleado();
+                        
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
+                        estadoEmpleadoDAO.getDatosPorID(idUsuario);
+                        //salida.println("Empleado: "+empleadosEntidad.getNombre_empleado()+" "+ estadoE.getNombreEstadoEmpleado());
+                        break;
+                        
+                    case "3":
+                        //Actualizar estado de un empleado
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
+                        salida.println(estadoEmpleadoDAO.getDatosPorID(idUsuario));
+                        String nuevoEstado = validar.validarString(socketCliente, "Digite el nuevo estado de empleado");
+                        EstadoEmpleado est = estadoEmpleadoDAO.getDatosPorID(idUsuario);
+                        
+                        est.setNombreEstadoEmpleado(nuevoEstado);
+                        estadoEmpleadoDAO.ActualizarDatos(est);
+                        break;
+                    case "4":
+                        salida.println("Saliendo de tabla de estados");
+                        break;
+                        
+                    default:
+                        salida.println("Ingrese una opcion valida.");
+                }
+                
             } while (bandera);
             
         } catch (IOException ex) {
