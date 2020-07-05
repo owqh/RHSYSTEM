@@ -5,11 +5,6 @@
 */
 package com.bitlab.clienteHilo;
 
-import com.bitlab.dao.EmpleadosDAO;
-import com.bitlab.dao.TipoUsuarioDAO;
-import com.bitlab.dao.UsuarioDAO;
-import com.bitlab.entidades.Empleado;
-import com.bitlab.entidades.Usuario;
 import com.bitlab.gestiones.Gestiones;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,11 +12,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.bitlab.utilidades.Validaciones;
-import java.util.List;
 
 /**
  *
@@ -89,7 +82,9 @@ public class ClienteHilo extends Thread {
                             break;
                         case "3":
                             //Gestionando estado de los usuarios
+                            Gestiones.gestionDeEstadoEmpleados(socketCliente);
                             break;
+                            
                         case "4":
                             //Gestionando los datos de los usuarios. 
                             Gestiones.gestionUsuarios(socketCliente);
@@ -118,6 +113,8 @@ public class ClienteHilo extends Thread {
             socketCliente.close();
             
         } catch (IOException | InterruptedException  ex) {
+            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
