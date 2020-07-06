@@ -595,3 +595,6 @@
 2020-07-05 22:45:37,541 INFO com.bitlab.principal.Proyecto4 [Thread-0] El codigo de seguridad ha sido aceptado
 2020-07-05 22:45:37,542 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Administrador detectado 
 2020-07-05 22:45:37,542 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando menu de administrador: Oscar
+2020-07-05 23:12:05,760 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 23:12:11,062 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-05 23:12:11,063 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888

@@ -45,15 +45,15 @@ public class ClienteHilo extends Thread {
         try {
             salida = new PrintWriter(socketCliente.getOutputStream(), true);
             entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
-            salida.println("Bienvenido/a Al sistema su direccion de acceso es: " + socketCliente.getInetAddress());
+            salida.println("Bienvenido/a Al sistema su direccion de acceso es: " + socketCliente.getInetAddress()+"\n\r");
             
 
             boolean banderaOpciones = true;
             //Bienvenida del usuario y inicio de sesion
             salida.println("****************  Sistema de gestion de recusos humanos *********************");
-            salida.println("Bienvenido/a al sistema");
-            salida.println("Identificacion de acceso al sistema.");
-            String email = validar.validarCorreo(socketCliente,"Por favor ingrese su correo electronico: ");
+            salida.println("Bienvenido/a al sistema \n\r");
+            salida.println("Identificacion de acceso al sistema. \n\r");
+            String email = validar.validarCorreo(socketCliente,"Por favor ingrese su correo electronico: \n\r");
             salida.println("Porfavor ingrese su contrasena: ");
             String pass = entrada.readLine();
             funciones.login(socketCliente,email, pass);

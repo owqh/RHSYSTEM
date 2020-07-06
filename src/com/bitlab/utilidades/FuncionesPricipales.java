@@ -138,8 +138,8 @@ public class FuncionesPricipales  {
             boolean flag = false;
             short contador = 0;
             do {  
-                  logger.debug("Recibiendo codigo de seguridad del usuario: "+nombre);
-                  salida.println("Digite el codigo que recibio en su correo electronico: ");
+                  logger.debug("Recibiendo codigo de seguridad del usuario: "+nombre+"\n\r");
+                  salida.println("Digite el codigo que recibio en su correo electronico: \n\r");
                   String codigoUsuario = entrada.readLine();
                   logger.debug("Validando el codigo de seguridad de "+nombre);
                    if (codigo.equalsIgnoreCase(codigoUsuario) && nivel == 1){
@@ -161,10 +161,10 @@ public class FuncionesPricipales  {
                    }
                    else {
                        flag = false;
-                       logger.debug("Condigo de seguridad incorrecto intento: "+contador);
+                       logger.debug("Condigo de seguridad incorrecto intento: "+contador +"\n\r");
                        salida.println("Por favor digite el codigo correcto.");
                        contador++;
-                       salida.println("Numero de intentos restantes: " + (3-contador));
+                       salida.println("Numero de intentos restantes: " + (3-contador)+"\n\r");
                        if (contador > 2) {
                            logger.debug("Acceso invalido, cerrando hilo");
                             salida.println("Acceso invalido, saliendo del sistema...");
@@ -173,7 +173,6 @@ public class FuncionesPricipales  {
                        }                       
                    }
             } while (flag != true);
-            salida.println("despues de todo esto");
             
         } catch (IOException ex) {
             Logger.getLogger(Proyecto4.class.getName()).log(Level.SEVERE, null, ex);

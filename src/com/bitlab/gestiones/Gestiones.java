@@ -216,7 +216,7 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         //Eliminar Rol de usuario
                         salida.println("Cargando..");
                         salida.println(tipoDao.getTodosLosDatos());
-                        byte idE = validar.validarByte(socketCliente, "Ingrese el ID del Rol a eliminar : ");
+                        byte idE = validar.validarByte(socketCliente, "Ingrese el ID del Rol a eliminar : \n\r");
                         tipoUsuario = tipoDao.getDatosPorID(idE);
                         salida.println("Se eliminara el Rol: " + tipoUsuario.getNombreTipoUsuario());
                         tipoDao.EliminarDatos(idE);
@@ -229,13 +229,13 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         EmpleadosDAO empdao = new EmpleadosDAO();
                         EstadoEmpleado estEm = new EstadoEmpleado();
                         EstadoEmpleadoDAO estEmD = new EstadoEmpleadoDAO();
-                        salida.println("seleccione el ID del empleado a modificar el estado");
+                        salida.println("seleccione el ID del empleado a modificar el estado \n\r");
                         salida.println(empdao.getTodosLosDatos());
-                        byte idEm = validar.validarByte(socketCliente, "Ingrese el ID empleado:");
+                        byte idEm = validar.validarByte(socketCliente, "Ingrese el ID empleado: \n\r");
                         emp = empdao.getDatosPorID(idEm);
                         salida.println("seleccione el ID del estado a asignar");
                         salida.println(estEmD.getTodosLosDatos());
-                        byte idEs = validar.validarByte(socketCliente, "Ingrese el ID del estado");
+                        byte idEs = validar.validarByte(socketCliente, "Ingrese el ID del estado \n\r");
                         emp.setEstadoEmpleado_fk(idEs);
                         empdao.ActualizarDatos(emp);
                         break;
@@ -244,7 +244,7 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         bandera = false;
                         break;
                     default:
-                        salida.println("Ingrese una opcion valida.");
+                        salida.println("Ingrese una opcion valida. \n\r");
                 }
             } while (bandera);
         } catch (IOException ex) {
@@ -284,33 +284,33 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                     case "1":
                         //ver estado laboral de todos los empleados.
                         
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : ");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : \n\r");
                         salida.println("Empleado "+estadoEmpleadoDAO.getDatosPorID(idUsuario));
                         salida.println(estadoEmpleadoDAO.getTodosLosDatos());
                         break;
                         
                     case "2":
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : ");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : \n\r");
                         salida.println("Empleado "+estadoEmpleadoDAO.getDatosPorID(idUsuario));
                         break; 
                         
                     case "3":
                         //Ver estado actual de un solo empleado.
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : ");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : \n\r");
                         salida.println("Empleado "+estadoEmpleadoDAO.getDatosPorID(idUsuario));
                         
                         break;
                         
                     case "4":
                         //Actualizar estado de un empleado
-                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado");
+                        idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del empleado \n\r");
                         salida.println(estadoEmpleadoDAO.getDatosPorID(idUsuario));
-                        String nuevoEstado = validar.validarString(socketCliente, "Digite el nuevo estado de empleado");
+                        String nuevoEstado = validar.validarString(socketCliente, "Digite el nuevo estado de empleado \n\r");
                         estadoEntidad.setNombreEstadoEmpleado(nuevoEstado);
                         estadoEmpleadoDAO.ActualizarDatos(estadoEntidad);
                         break;
                         
-                    case "":
+                    case "5":
                         //Agregar un estado de empleado.
                         byte user = 1;
                         for (EstadoEmpleado us : estadoEmpleadoDAO.getTodosLosDatos()) {
@@ -329,18 +329,18 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         //Eliminar un estado de empleado.
                         byte id_Estado = validar.validarByte(socketCliente, "Ingrese el ID del estado empleado a eliminar : ");
                         estadoEntidad = estadoEmpleadoDAO.getDatosPorID(id_Estado);
-                        salida.println("Se eliminara el estado: "+estadoEntidad.getNombreEstadoEmpleado());
+                        salida.println("Se eliminara el estado: "+estadoEntidad.getNombreEstadoEmpleado()+"\n\r");
                         estadoEmpleadoDAO.EliminarDatos(estadoEntidad.getId_EstadoEmpleado());
-                        salida.println("Estado eliminado.");
+                        salida.println("Estado eliminado. \n\r");
                         break;
                         
                     case "7":
-                        salida.println("Saliendo de tabla estados de empleado...");
+                        salida.println("Saliendo de tabla estados de empleado... \n\r");
                         bandera = false;
                         break;
                         
                     default:
-                        salida.println("Ingrese una opcion valida.");
+                        salida.println("Ingrese una opcion valida. \n\r");
                 }
                 
             } while (bandera);
@@ -371,7 +371,7 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                 salida.println(" |*| 1. Ver todos los empleados actuales     |*|\n\r");
                 salida.println(" |*| 2. Ver datos de un empleado             |*|\n\r");
                 salida.println(" |*| 3. Eliminar un empleados                |*|\n\r");
-                salida.println(" |*| 4. Modicicar datos de un empleado       |*|\n\r");
+                salida.println(" |*| 4. Modificar datos de un empleado       |*|\n\r");
                 salida.println(" |*| 5. Desactivar un empleado por despido   |*|\n\r");
                 salida.println(" |*| 6. Contratación de empleados.           |*|\n\r");
                 salida.println(" |*| 7.Salir                                 |*|\n\r");
@@ -390,55 +390,55 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                     case "2":
                         
                         //Seleccionando datos de un solo empleado
-                        idEmpleado = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : ");
-                        salida.println("Empleado "+empleadosDao.getDatosPorID(idEmpleado));
+                        idEmpleado = validar.validarInt(socketCliente, "Ingrese el ID del empleado a verificar : \n\r");
+                        salida.println("Empleado "+empleadosDao.getDatosPorID(idEmpleado)+"\n\r");
                         break;
                         
                     case "3":
                         //Eliminando un empleado.
-                        idEmpleado = validar.validarInt(socketCliente, "Ingrese el ID del empleado a eliminar : ");
+                        idEmpleado = validar.validarInt(socketCliente, "Ingrese el ID del empleado a eliminar : \n\r");
                         em = empleadosDao.getDatosPorID(idEmpleado);
                         
                         salida.println("Se eliminara el empleado: "+em.getNombre_empleado()+" "+em.getApellido_empleado()+
-                                ", email_acceso: "+em.getCorreo_empleado());
+                                ", email_acceso: "+em.getCorreo_empleado()+"\n\r");
                         empleadosDao.EliminarDatos(em.getId_empleado());
-                        salida.println("Empleado eliminado");
+                        salida.println("Empleado eliminado \n\r");
                         break;
                         
                     case "4":
                         //Actualizando datos de un usuario.
-                        idEmpleado = validar.validarInt(socketCliente, "Ingrese ID del empleado a modificar : ");
+                        idEmpleado = validar.validarInt(socketCliente, "Ingrese ID del empleado a modificar : \n\r");
                         em = empleadosDao.getDatosPorID(idEmpleado);
                         salida.println("Nombre actual : "+em.getNombre_empleado());
-                        String nuevoNombre = validar.validarString( socketCliente, "Ingrese el nombre nuevo : ");
-                        salida.println("Appellido actual : "+em.getApellido_empleado());
-                        String nuevoApellido = validar.validarString(socketCliente, "Ingrese el Apellido nuevo : ");
+                        String nuevoNombre = validar.validarString( socketCliente, "Ingrese el nombre nuevo : \n\r");
+                        salida.println("Appellido actual : "+em.getApellido_empleado()+"\n\r");
+                        String nuevoApellido = validar.validarString(socketCliente, "Ingrese el Apellido nuevo : \n\r");
                         salida.println("Correo actual: "+em.getCorreo_empleado());
-                        String nuevoCorreo = validar.validarCorreo(socketCliente, "Ingrese el Email nuevo : ");
+                        String nuevoCorreo = validar.validarCorreo(socketCliente, "Ingrese el Email nuevo :\n\r ");
                         salida.println("Telefono : "+em.getTelefono_empleado());
-                        int telefono = validar.validarInt(socketCliente, "Ingrese numero telefonico nuevo : ");
+                        int telefono = validar.validarInt(socketCliente, "Ingrese numero telefonico nuevo : \n\r");
                         salida.println("DUI actual : "+em.getDui_empleado());
                         int dui = validar.validarInt(socketCliente, "Ingrese nuevo numero DUI : ");
                         salida.println("Direccion actual : "+em.getDireccion_empleado());
-                        String direccion = validar.validarString(socketCliente, "Ingrese la nueva direccion : ");
+                        String direccion = validar.validarString(socketCliente, "Ingrese la nueva direccion : \n\r");
                         salida.println("Fecha de nacimiento actual : "+em.getFecha_nac_empleado());
-                        int fechaDia = validar.validarInt(socketCliente, "Ingrese dia de nacimiento  nuevo: ");
-                        int fechaMes = validar.validarInt(socketCliente, "Ingrese mes de nacimiento nuevo: ");
-                        int fechaAnio = validar.validarInt(socketCliente, "Ingrese anio de nacimiento nuevo: ");
+                        int fechaDia = validar.validarInt(socketCliente, "Ingrese dia de nacimiento  nuevo: \n\r");
+                        int fechaMes = validar.validarInt(socketCliente, "Ingrese mes de nacimiento nuevo: \n\r");
+                        int fechaAnio = validar.validarInt(socketCliente, "Ingrese anio de nacimiento nuevo: \n\r");
                         salida.println("Fecha de contrato actual : "+em.getFecha_contrat_empleado());
-                        int fechaCtDia = validar.validarInt(socketCliente, "Ingrese dia de contratacion: ");
-                        int fechaCtMes = validar.validarInt(socketCliente, "Ingrese mes de contratacion: ");
-                        int fechaCtAnio = validar.validarInt(socketCliente, "Ingrese anio de contratacion: ");
+                        int fechaCtDia = validar.validarInt(socketCliente, "Ingrese dia de contratacion: \n\r");
+                        int fechaCtMes = validar.validarInt(socketCliente, "Ingrese mes de contratacion: \n\r");
+                        int fechaCtAnio = validar.validarInt(socketCliente, "Ingrese anio de contratacion: \n\r");
                         salida.println("SEX ID actual : "+em.getSexIDempleado_fk());
                         int sexId = validar.validarInt(socketCliente, "Ingrese nuevo SEX_ID : ");
                         salida.println("ID_Estado Empleado actual : "+em.getEstadoEmpleado_fk());
-                        int  estadoEmID = validar.validarInt(socketCliente, "Ingrese nuevo ID_Estado_empleado : ");
+                        int  estadoEmID = validar.validarInt(socketCliente, "Ingrese nuevo ID_Estado_empleado : \n\r");
                         salida.println("ID_Estado Civil actual : "+em.getEstadoCivil_empleado_fk());
-                        int idEstadoCivil = validar.validarInt(socketCliente, "Ingrese nuevo ID - Estado civil : ");
+                        int idEstadoCivil = validar.validarInt(socketCliente, "Ingrese nuevo ID - Estado civil : \n\r");
                         salida.println("ID_Departamento actual : "+em.getDeparID_empleado_fk());
-                        int departID = validar.validarInt(socketCliente, "Ingrese el nuevo ID departamento : ");
+                        int departID = validar.validarInt(socketCliente, "Ingrese el nuevo ID departamento : \n\r");
                         salida.println("Cargo_ID actual : "+em.getEstadoCivil_empleado_fk());
-                        int cargoID = validar.validarInt(socketCliente, "Ingrese nuevo Cargo_ID : ");
+                        int cargoID = validar.validarInt(socketCliente, "Ingrese nuevo Cargo_ID : \n\r");
                         
                         em.setNombre_empleado(nuevoNombre);
                         em.setApellido_empleado(nuevoApellido);
@@ -480,13 +480,13 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         EmpleadosDAO empdao = new EmpleadosDAO();
                         EstadoEmpleado estEm = new EstadoEmpleado();
                         EstadoEmpleadoDAO estEmD = new EstadoEmpleadoDAO();
-                        salida.println("seleccione el ID del empleado a modificar el estado");
+                        salida.println("seleccione el ID del empleado a modificar el estado \n\r");
                         salida.println(empdao.getTodosLosDatos());
-                        byte idEm = validar.validarByte(socketCliente, "Ingrese el ID empleado:");
+                        byte idEm = validar.validarByte(socketCliente, "Ingrese el ID empleado: \n\r");
                         emp = empdao.getDatosPorID(idEm);
-                        salida.println("seleccione el ID del estado a asignar");
+                        salida.println("seleccione el ID del estado a asignar \n\r");
                         salida.println(estEmD.getTodosLosDatos());
-                        byte idEs = validar.validarByte(socketCliente, "Ingrese el ID del estado");
+                        byte idEs = validar.validarByte(socketCliente, "Ingrese el ID del estado \n\r");
                         emp.setEstadoEmpleado_fk(idEs);
                         empdao.ActualizarDatos(emp);
                         
@@ -501,25 +501,25 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         }
                         int id_e = user++;
                         
-                        idEmpleado = validar.validarInt(socketCliente, "Ingrese ID del empleado : ");
+                        idEmpleado = validar.validarInt(socketCliente, "Ingrese ID del empleado : \n\r");
                         em = empleadosDao.getDatosPorID(idEmpleado);
-                        String nombre = validar.validarString( socketCliente, "Ingrese el nombre : ");
-                        String apellido = validar.validarString(socketCliente, "Ingrese el Apellido : ");
-                        String correo = validar.validarCorreo(socketCliente, "Ingrese el Email : ");
-                        int telefono1 = validar.validarInt(socketCliente, "Ingrese numero telefonico : ");
-                        int duiI = validar.validarInt(socketCliente, "Ingrese nuevo numero DUI : ");
-                        String direccion1 = validar.validarString(socketCliente, "Ingrese direccion : ");
-                        int fechaDia1 = validar.validarInt(socketCliente, "Ingrese dia de nacimiento : ");
-                        int fechaMes1 = validar.validarInt(socketCliente, "Ingrese mes de nacimiento : ");
-                        int fechaAnio1 = validar.validarInt(socketCliente, "Ingrese anio de nacimiento : ");
-                        int fechaCtDia1 = validar.validarInt(socketCliente, "Ingrese dia de contratacion: ");
-                        int fechaCtMes1 = validar.validarInt(socketCliente, "Ingrese mes de contratacion: ");
-                        int fechaCtAnio1 = validar.validarInt(socketCliente, "Ingrese anio de contratacion: ");
-                        int sexId1 = validar.validarInt(socketCliente, "Ingrese nuevo SEX_ID : ");
-                        int estadoEmID1 = validar.validarInt(socketCliente, "Ingrese ID_Estado_empleado : ");
-                        int idEstadoCivil2 = validar.validarInt(socketCliente, "Ingrese ID - Estado civil : ");
-                        int departID1 = validar.validarInt(socketCliente, "Ingrese el ID departamento : ");
-                        int cargoID1 = validar.validarInt(socketCliente, "Ingrese Cargo_ID : ");
+                        String nombre = validar.validarString( socketCliente, "Ingrese el nombre : \n\r");
+                        String apellido = validar.validarString(socketCliente, "Ingrese el Apellido : \n\r");
+                        String correo = validar.validarCorreo(socketCliente, "Ingrese el Email : \n\r");
+                        int telefono1 = validar.validarInt(socketCliente, "Ingrese numero telefonico : \n\r");
+                        int duiI = validar.validarInt(socketCliente, "Ingrese nuevo numero DUI : \n\r");
+                        String direccion1 = validar.validarString(socketCliente, "Ingrese direccion : \n\r");
+                        int fechaDia1 = validar.validarInt(socketCliente, "Ingrese dia de nacimiento : \n\r");
+                        int fechaMes1 = validar.validarInt(socketCliente, "Ingrese mes de nacimiento : \n\r");
+                        int fechaAnio1 = validar.validarInt(socketCliente, "Ingrese anio de nacimiento : \n\r");
+                        int fechaCtDia1 = validar.validarInt(socketCliente, "Ingrese dia de contratacion: \n\r");
+                        int fechaCtMes1 = validar.validarInt(socketCliente, "Ingrese mes de contratacion: \n\r");
+                        int fechaCtAnio1 = validar.validarInt(socketCliente, "Ingrese anio de contratacion: \n\r");
+                        int sexId1 = validar.validarInt(socketCliente, "Ingrese nuevo SEX_ID : \n\r");
+                        int estadoEmID1 = validar.validarInt(socketCliente, "Ingrese ID_Estado_empleado : \n\r");
+                        int idEstadoCivil2 = validar.validarInt(socketCliente, "Ingrese ID - Estado civil : \n\r");
+                        int departID1 = validar.validarInt(socketCliente, "Ingrese el ID departamento : \n\r");
+                        int cargoID1 = validar.validarInt(socketCliente, "Ingrese Cargo_ID : \n\r");
                         
                         em.setId_empleado(id_e);
                         em.setNombre_empleado(nombre);
@@ -564,7 +564,7 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         bandera = false;
                         break;
                     default:
-                        salida.println("Seleccione una opcion valida");
+                        salida.println("Seleccione una opcion valida \n\r");
                 }
             } while (bandera);
             
