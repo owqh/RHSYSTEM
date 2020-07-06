@@ -83,6 +83,7 @@ public class Gestiones {
                                 ", email_acceso: "+u.getAcceso_usuario());
                         usuarioDAO.EliminarDatos(u.getId_usuario());
                         salida.println("Usuario eliminado");
+                        bandera = true;
                         break;
                         
                     case "4":
@@ -415,9 +416,9 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         salida.println("Correo actual: "+em.getCorreo_empleado());
                         String nuevoCorreo = validar.validarCorreo(socketCliente, "Ingrese el Email nuevo : ");
                         salida.println("Telefono : "+em.getTelefono_empleado());
-                        String telefono = validar.validarString(socketCliente, "Ingrese numero telefonico nuevo : ");
+                        int telefono = validar.validarInt(socketCliente, "Ingrese numero telefonico nuevo : ");
                         salida.println("DUI actual : "+em.getDui_empleado());
-                        String dui = validar.validarString(socketCliente, "Ingrese nuevo numero DUI : ");
+                        int dui = validar.validarInt(socketCliente, "Ingrese nuevo numero DUI : ");
                         salida.println("Direccion actual : "+em.getDireccion_empleado());
                         String direccion = validar.validarString(socketCliente, "Ingrese la nueva direccion : ");
                         salida.println("Fecha de nacimiento actual : "+em.getFecha_nac_empleado());
@@ -505,8 +506,8 @@ public static void gestionDeRoles(Socket socketCliente) throws SQLException {
                         String nombre = validar.validarString( socketCliente, "Ingrese el nombre : ");
                         String apellido = validar.validarString(socketCliente, "Ingrese el Apellido : ");
                         String correo = validar.validarCorreo(socketCliente, "Ingrese el Email : ");
-                        String telefono1 = validar.validarString(socketCliente, "Ingrese numero telefonico : ");
-                        String duiI = validar.validarString(socketCliente, "Ingrese nuevo numero DUI : ");
+                        int telefono1 = validar.validarInt(socketCliente, "Ingrese numero telefonico : ");
+                        int duiI = validar.validarInt(socketCliente, "Ingrese nuevo numero DUI : ");
                         String direccion1 = validar.validarString(socketCliente, "Ingrese direccion : ");
                         int fechaDia1 = validar.validarInt(socketCliente, "Ingrese dia de nacimiento : ");
                         int fechaMes1 = validar.validarInt(socketCliente, "Ingrese mes de nacimiento : ");

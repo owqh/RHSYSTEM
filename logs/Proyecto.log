@@ -550,3 +550,48 @@
 2020-07-05 21:47:19,167 INFO com.bitlab.principal.Proyecto4 [Thread-2] El codigo de seguridad ha sido aceptado
 2020-07-05 21:47:19,168 DEBUG com.bitlab.principal.Proyecto4 [Thread-2] Administrador detectado 
 2020-07-05 21:47:19,168 DEBUG com.bitlab.principal.Proyecto4 [Thread-2] Iniciando menu de administrador: Oscar
+2020-07-05 22:34:28,835 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:34:31,437 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-05 22:34:31,437 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:34:44,765 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando verificacion de acceso al sistema
+2020-07-05 22:34:46,349 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Realizando validacion de usuario en bd
+2020-07-05 22:34:46,546 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Solicitando doble factor de autenticacion
+2020-07-05 22:34:46,548 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando cadena de seguridad
+2020-07-05 22:34:46,548 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando envio de correo electronico de seguridad
+2020-07-05 22:34:46,569 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Enviando correo electronico
+2020-07-05 22:34:48,737 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Recibiendo codigo de seguridad del usuario: Oscar
+2020-07-05 22:35:12,956 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Validando el codigo de seguridad de Oscar
+2020-07-05 22:35:12,957 INFO com.bitlab.principal.Proyecto4 [Thread-0] El codigo de seguridad ha sido aceptado
+2020-07-05 22:35:12,957 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Administrador detectado 
+2020-07-05 22:35:12,957 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando menu de administrador: Oscar
+2020-07-05 22:40:07,949 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:40:10,300 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-05 22:40:10,300 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:40:29,280 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando verificacion de acceso al sistema
+2020-07-05 22:40:30,859 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Realizando validacion de usuario en bd
+2020-07-05 22:40:31,059 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Solicitando doble factor de autenticacion
+2020-07-05 22:40:31,061 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando cadena de seguridad
+2020-07-05 22:40:31,061 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando envio de correo electronico de seguridad
+2020-07-05 22:40:31,083 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Enviando correo electronico
+2020-07-05 22:40:33,293 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Recibiendo codigo de seguridad del usuario: Oscar
+2020-07-05 22:40:49,496 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Validando el codigo de seguridad de Oscar
+2020-07-05 22:40:49,496 INFO com.bitlab.principal.Proyecto4 [Thread-0] El codigo de seguridad ha sido aceptado
+2020-07-05 22:40:49,497 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Administrador detectado 
+2020-07-05 22:40:49,497 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando menu de administrador: Oscar
+2020-07-05 22:44:54,112 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:44:58,591 DEBUG com.bitlab.principal.Proyecto4 [main] El cliente ha sido aceptado satisfactoriamente
+2020-07-05 22:44:58,591 DEBUG com.bitlab.principal.Proyecto4 [main] EL servidor espera conexion en el puerto 8888
+2020-07-05 22:45:15,734 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando verificacion de acceso al sistema
+2020-07-05 22:45:17,284 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Realizando validacion de usuario en bd
+2020-07-05 22:45:17,469 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Solicitando doble factor de autenticacion
+2020-07-05 22:45:17,470 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando cadena de seguridad
+2020-07-05 22:45:17,470 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Preparando envio de correo electronico de seguridad
+2020-07-05 22:45:17,493 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Enviando correo electronico
+2020-07-05 22:45:19,365 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Recibiendo codigo de seguridad del usuario: Oscar
+2020-07-05 22:45:30,893 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Validando el codigo de seguridad de Oscar
+2020-07-05 22:45:30,893 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Condigo de seguridad incorrecto intento: 0
+2020-07-05 22:45:30,893 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Recibiendo codigo de seguridad del usuario: Oscar
+2020-07-05 22:45:37,541 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Validando el codigo de seguridad de Oscar
+2020-07-05 22:45:37,541 INFO com.bitlab.principal.Proyecto4 [Thread-0] El codigo de seguridad ha sido aceptado
+2020-07-05 22:45:37,542 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Administrador detectado 
+2020-07-05 22:45:37,542 DEBUG com.bitlab.principal.Proyecto4 [Thread-0] Iniciando menu de administrador: Oscar

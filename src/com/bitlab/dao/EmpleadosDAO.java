@@ -28,8 +28,8 @@ public class EmpleadosDAO extends PatronDAO<Empleado> {
                 rs.getString("EMP_NOMBRE"),
                 rs.getString("EMP_APELLIDO"),
                 rs.getString("EMP_CORREO"),
-                rs.getString("EMP_TELEFONO"),
-                rs.getString("EMP_DUI"),
+                rs.getInt("EMP_TELEFONO"),
+                rs.getInt("EMP_DUI"),
                 rs.getString("EMP_DIRECCION"),
                 rs.getDate("EMP_FECHA_NAC"),
                 rs.getDate("EMP_FECHA_CONTRATO"),
@@ -46,8 +46,8 @@ public class EmpleadosDAO extends PatronDAO<Empleado> {
         ps.setString(   2, entidad.getNombre_empleado());
         ps.setString(   3, entidad.getApellido_empleado());
         ps.setString(   4, entidad.getCorreo_empleado());
-        ps.setString(   5, entidad.getTelefono_empleado());
-        ps.setString(   6, entidad.getDui_empleado());
+        ps.setInt(5, entidad.getTelefono_empleado());
+        ps.setInt(   6, entidad.getDui_empleado());
         ps.setString(   7, entidad.getDireccion_empleado());
         ps.setDate(     8, entidad.getFecha_nac_empleado() );
         ps.setDate(     9, entidad.getFecha_contrat_empleado());
@@ -65,8 +65,8 @@ public class EmpleadosDAO extends PatronDAO<Empleado> {
         ps.setString(   2, entidad.getNombre_empleado());
         ps.setString(   3, entidad.getApellido_empleado());
         ps.setString(   4, entidad.getCorreo_empleado());
-        ps.setString(   5, entidad.getTelefono_empleado());
-        ps.setString(   6, entidad.getDui_empleado());
+        ps.setInt(   5, entidad.getTelefono_empleado());
+        ps.setInt(   6, entidad.getDui_empleado());
         ps.setString(   7, entidad.getDireccion_empleado());
         ps.setDate(     8, entidad.getFecha_nac_empleado() );
         ps.setDate(     9, entidad.getFecha_contrat_empleado());
