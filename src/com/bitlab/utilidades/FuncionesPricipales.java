@@ -42,7 +42,7 @@ public class FuncionesPricipales  {
      //Funcion para validar acceso al sistema de un cliente
      
      public void login(Socket socketCliente, String correo, String pass) throws IOException, ClassNotFoundException, SQLException{
-       logger.debug("Iniciando verificacion de acceso al sistema");
+       logger.debug("Iniciando verificacion de acceso al sistema ");
        salida = new PrintWriter(socketCliente.getOutputStream(), true);
        entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
         List<Usuario> objects = new ArrayList<>();
@@ -51,13 +51,13 @@ public class FuncionesPricipales  {
          if (objects.size() == 1 ) {
              for (Usuario u : objects) {
                  logger.debug("Solicitando doble factor de autenticacion");
-                 salida.println("Revise su direccion de correo electronico e ingrese el codigo que se le envio.");
+                 salida.println("Revise su direccion de correo electronico e ingrese el codigo que se le envio. \n\r");
                  validarAcceso(socketCliente,u.getNombre_usuario(), u.getAcceso_usuario(), u.getTipo_id_fk());
              }
          }else{
              logger.debug("Correo o contrasena incorrecta, cerrando hilo");
-             salida.println("Correo o contrasena incorrecta, porfavor intente de nuevo");
-             salida.println("Se cerrara el sistema.");
+             salida.println("Correo o contrasena incorrecta, porfavor intente de nuevo \n\r");
+             salida.println("Se cerrara el sistema.\n\r");
              socketCliente.close();
          }
 //       salida.println("El usuario es: "+correo);

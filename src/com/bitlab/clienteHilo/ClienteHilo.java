@@ -54,7 +54,7 @@ public class ClienteHilo extends Thread {
             salida.println("Bienvenido/a al sistema \n\r");
             salida.println("Identificacion de acceso al sistema. \n\r");
             String email = validar.validarCorreo(socketCliente,"Por favor ingrese su correo electronico: \n\r");
-            salida.println("Porfavor ingrese su contrasena: ");
+            salida.println("Porfavor ingrese su contrasena: \n\r");
             String pass = entrada.readLine();
             funciones.login(socketCliente,email, pass);
 

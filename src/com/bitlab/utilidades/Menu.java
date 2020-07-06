@@ -34,7 +34,7 @@ public class Menu {
        entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
        //Bienvenida al menu
        salida.println(" ");
-       salida.println("Bienvenido Administrador "+nombre);
+       salida.println("Bienvenido Administrador "+nombre+"\n\r");
        try {
             boolean banderaOpciones = true;
             while (banderaOpciones) {
@@ -102,12 +102,12 @@ public class Menu {
     
     //Menu para Recursos humanos  
      public  void menuHR(Socket socketCliente, String nombre) throws IOException{
-        logger.debug("Iniciando menu de Recursos humanos para: "+nombre);
+        logger.debug("Iniciando menu de Recursos humanos para: "+nombre+"\n\r");
         salida = new PrintWriter(socketCliente.getOutputStream(), true);
         entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
          //Bienvenida al menu
         salida.println(" ");
-        salida.println("Bienvenido: "+nombre);
+        salida.println("Bienvenido: "+nombre+"\n\r");
         Gestiones.gestionandoEmpleados(socketCliente);
         
     }
@@ -117,6 +117,6 @@ public class Menu {
         logger.debug("Iniciando menu de Otros para: "+nombre); 
         salida = new PrintWriter(socketCliente.getOutputStream(), true);
         entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
-         System.out.println("Este es el menu para otro tipo de usuario diferente a admin o Recursos humanos");
+         System.out.println("Este es el menu para otro tipo de usuario diferente a admin o Recursos humanos \n\r");
     }
 }
