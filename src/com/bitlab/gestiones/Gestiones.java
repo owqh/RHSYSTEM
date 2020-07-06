@@ -31,7 +31,9 @@ public class Gestiones {
     public static BufferedReader entrada = null;
     
     public static void gestionUsuarios(Socket socketCliente) throws IOException{
+        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario u = new Usuario();
         Validaciones validar = new Validaciones();
         
         boolean bandera = true;
@@ -69,13 +71,13 @@ public class Gestiones {
                         break;
                         
                     case "3":
-                        //Eliminando un usuario.
+                        //Eliminando usuario.
                         idUsuario = validar.validarInt(socketCliente, "Ingrese el ID del usuario a eliminar : ");
-                        Usuario u = usuarioDAO.getDatosPorID(idUsuario);
+                        u = usuarioDAO.getDatosPorID(idUsuario);
+                        
                         salida.println("Se eliminara el usuario: "+u.getNombre_usuario()+" "+u.getApellido_usuario()+
                                 ", email_acceso: "+u.getAcceso_usuario());
-                        usuarioDAO.EliminarDatos(u);
-                        break;
+                        usuarioDAO.EliminarDatos(u.getId_usuario());break;
                         
                     case "4":
                         //Actualizando datos de un usuario.
@@ -151,15 +153,14 @@ public class Gestiones {
         
 //                                    //Gestionando roles de usuario.
 //                            salida.println(" _______________________________________________\n\r");
-//                            salida.println(" |°   Tabla de gestion de roles de usuario    °|\n\r");
-//                            salida.println(" |°|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|°|\n\r");
-//                            salida.println(" |°| 1. Ver Roles de usuarios actuales       |°|\n\r");
-//                            salida.println(" |°| 2. Cambiar rol de un usuario            |°|\n\r");
-//                            salida.println(" |°| 3. Agregar rol de un usuario            |°|\n\r");
-//                            salida.println(" |°| 4. Eliminar rol de un usuario           |°|\n\r");
-//                            salida.println(" |°| 3. Salir                                |°|\n\r");
-//                            salida.println(" |°|_________________________________________|°|\n\r");
-//                            salida.println(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n\r");
+//                            salida.println(" |*   Tabla de gestion de roles de usuario    *|\n\r");
+//                            salida.println(" |*|*****************************************|*|\n\r");
+//                            salida.println(" |*| 1. Ver Roles de usuarios actuales       |*|\n\r");
+//                            salida.println(" |*| 2. Cambiar rol de un usuario            |*|\n\r");
+//                            salida.println(" |*| 3. Agregar rol de un usuario            |*|\n\r");
+//                            salida.println(" |*| 4. Eliminar rol de un usuario           |*|\n\r");
+//                            salida.println(" |*| 3. Salir                                |*|\n\r");
+//                            salida.println(" |*|_________________________________________|*|\n\r");
 
 
     }
@@ -180,16 +181,15 @@ public class Gestiones {
                 
                 //Gestionando estado de los empleados
                 salida.println(" _______________________________________________\n\r");
-                salida.println(" |*       Tabla estados de empleados          °|\n\r");
-                salida.println(" |*|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|°|\n\r");
-                salida.println(" |*| 1. Ver todos los estados de empleados   |°|\n\r");
-                salida.println(" |*| 2. Ver estado actual de un empleado     |°|\n\r");
-                salida.println(" |°| 3. modificar estado de un empleado      |°|\n\r");
-                salida.println(" |°| 4. Agregar un estado de empleado        |°|\n\r");
-                salida.println(" |°| 5. Eliminar un estado de empleado       |°|\n\r");
-                salida.println(" |°| 6. Salir                                |°|\n\r");
-                salida.println(" |°|_________________________________________|°|\n\r");
-                salida.println(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n\r");
+                salida.println(" |*       Tabla estados de empleados          *|\n\r");
+                salida.println(" |*|*****************************************|*|\n\r");
+                salida.println(" |*| 1. Ver todos los estados de empleados   |*|\n\r");
+                salida.println(" |*| 2. Ver estado actual de un empleado     |*|\n\r");
+                salida.println(" |*| 3. modificar estado de un empleado      |*|\n\r");
+                salida.println(" |*| 4. Agregar un estado de empleado        |*|\n\r");
+                salida.println(" |*| 5. Eliminar un estado de empleado       |*|\n\r");
+                salida.println(" |*| 6. Salir                                |*|\n\r");
+                salida.println(" |*|_________________________________________|*|\n\r");
                 
                 String seleccion = entrada.readLine();
                 switch(seleccion){
@@ -233,8 +233,10 @@ public class Gestiones {
                         byte id_Estado = validar.validarByte(socketCliente, "Ingrese el ID del estado empleado a eliminar : ");
                         estadoEntidad = estadoEmpleadoDAO.getDatosPorID(id_Estado);
                         salida.println("Se eliminara el estado: "+estadoEntidad.getNombreEstadoEmpleado());
-                        estadoEmpleadoDAO.EliminarDatos(id_Estado);
+                        estadoEmpleadoDAO.EliminarDatos(estadoEntidad.getId_EstadoEmpleado());
+                        salida.println("Estado eliminado.");
                         break;
+                        
                     case "6":
                         salida.println("Saliendo de tabla estados de empleado...");
                         bandera = false;
@@ -256,24 +258,23 @@ public class Gestiones {
     
     public static void gestionandoEmpleados(){
         
-//Gestionando empleados en la BD.
+        //Gestionando empleados en la BD.
 //                            salida.println(" _______________________________________________\n\r");
-//                            salida.println(" |°       Tabla gestion de empleados          °|\n\r");
-//                            salida.println(" |°|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|°|\n\r");
-//                            salida.println(" |°| 1. Ver todos los empleados actuales     |°|\n\r");
-//                            salida.println(" |°| 2. Ver datos de un empleado             |°|\n\r");
-//                            salida.println(" |°| 3. Agregar empleado nuevo               |°|\n\r");
-//                            salida.println(" |°| 4. Modicicar datos de un empleado       |°|\n\r");
-//                            salida.println(" |°| 5. Desactivar un empleado por despido   |°|\n\r");
-//                            salida.println(" |°| 6. Asignar departamento a un empleado   |°|\n\r");
-//                            salida.println(" |°| 7. Asignar jefatura a un empleado       |°|\n\r");
-//                            salida.println(" |°| 8. Actualizar salario de un empleado    |°|\n\r");
-//                            salida.println(" |°| 9. Ver pagos generados del empleado     |°|\n\r");
-//                            salida.println(" |°| 10.Eliminar un empleados                |°|\n\r");
-//                            salida.println(" |°| 11.Generar pagos en planilla            |°|\n\r");
-//                            salida.println(" |°| 12.Salir                                |°|\n\r");
-//                            salida.println(" |°|_________________________________________|°|\n\r");
-//                            salida.println(" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n\r");
+//                            salida.println(" |*       Tabla gestion de empleados          *|\n\r");
+//                            salida.println(" |*|*****************************************|*|\n\r");
+//                            salida.println(" |*| 1. Ver todos los empleados actuales     |*|\n\r");
+//                            salida.println(" |*| 2. Ver datos de un empleado             |*|\n\r");
+//                            salida.println(" |*| 3. Agregar empleado nuevo               |*|\n\r");
+//                            salida.println(" |*| 4. Modicicar datos de un empleado       |*|\n\r");
+//                            salida.println(" |*| 5. Desactivar un empleado por despido   |*|\n\r");
+//                            salida.println(" |*| 6. Asignar departamento a un empleado   |*|\n\r");
+//                            salida.println(" |*| 7. Asignar jefatura a un empleado       |*|\n\r");
+//                            salida.println(" |*| 8. Actualizar salario de un empleado    |*|\n\r");
+//                            salida.println(" |*| 9. Ver pagos generados del empleado     |*|\n\r");
+//                            salida.println(" |*| 10.Eliminar un empleados                |*|\n\r");
+//                            salida.println(" |*| 11.Generar pagos en planilla            |*|\n\r");
+//                            salida.println(" |*| 12.Salir                                |*|\n\r");
+//                            salida.println(" |*|_________________________________________|*|\n\r");
 
     }
 }
