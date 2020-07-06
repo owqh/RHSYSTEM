@@ -59,7 +59,7 @@ public class Menu {
                             
                         case "2":
                             //Gestionando roles de usuario.
-                            
+                            Gestiones.gestionDeRoles(socketCliente);
                             break;
                         case "3":
                             //Gestionando estado de los empleados

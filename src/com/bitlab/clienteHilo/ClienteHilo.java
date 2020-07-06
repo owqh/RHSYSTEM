@@ -50,7 +50,7 @@ public class ClienteHilo extends Thread {
 
             boolean banderaOpciones = true;
             //Bienvenida del usuario y inicio de sesion
-            salida.println("****************  Sistema de gestion de recusos humanos *********************");
+            salida.println("****************  Sistema de gestion de recusos humanos *********************  \n\r");
             salida.println("Bienvenido/a al sistema \n\r");
             salida.println("Identificacion de acceso al sistema. \n\r");
             String email = validar.validarCorreo(socketCliente,"Por favor ingrese su correo electronico: \n\r");
