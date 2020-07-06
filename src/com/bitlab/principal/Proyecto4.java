@@ -6,24 +6,8 @@
 package com.bitlab.principal;
 
 import com.bitlab.clienteHilo.ClienteHilo;
-import com.bitlab.correo.Correo;
-import com.bitlab.dao.EmpleadosDAO;
-import com.bitlab.datos.correo.DatosCorreo;
-import com.bitlab.encriptador.Encriptador;
-import com.bitlab.entidades.Empleado;
-import com.bitlab.utilidades.FuncionesPricipales;
-import com.bitlab.utilidades.Validaciones;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Properties;
-import java.util.Scanner;
-import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

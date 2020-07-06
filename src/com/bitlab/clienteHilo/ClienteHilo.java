@@ -5,7 +5,9 @@
 */
 package com.bitlab.clienteHilo;
 
+import com.bitlab.dao.UsuarioDAO;
 import com.bitlab.gestiones.Gestiones;
+import com.bitlab.utilidades.FuncionesPricipales;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +25,7 @@ import com.bitlab.utilidades.Validaciones;
 public class ClienteHilo extends Thread {
     
     private Socket socketCliente;
-    
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
     
     public ClienteHilo() {
     }
@@ -39,25 +41,23 @@ public class ClienteHilo extends Thread {
         BufferedReader entrada = null;
         String opcionCliente = "";
         Validaciones validar = new Validaciones();
-        
+        FuncionesPricipales funciones = new FuncionesPricipales();
         try {
             salida = new PrintWriter(socketCliente.getOutputStream(), true);
             entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
-            salida.println("bienvenido cliente " + socketCliente.getInetAddress());
+            salida.println("Bienvenido/a Al sistema su direccion de acceso es: " + socketCliente.getInetAddress());
             
+
             boolean banderaOpciones = true;
-            salida.println("Bienvenido clliente\n\r ");
-            
             //Bienvenida del usuario y inicio de sesion
-            //salida.println("****************  Sistema de gestion de recusos humanos *********************");
-            //salida.println("Bienvenido/a al sistema");
-            //salida.println("Identificacion de acceso al sistema.");
-            //String correo = validar.validarCorreo("Por favor ingrese su correo electronico: ");
-            //System.out.println("Revise su direccion de correo electronico e ingrese el codigo que se le envio.");
-            //
-            //funciones.validarAcceso(nombre, correo);
+            salida.println("****************  Sistema de gestion de recusos humanos *********************");
+            salida.println("Bienvenido/a al sistema");
+            salida.println("Identificacion de acceso al sistema.");
+            String email = validar.validarCorreo(socketCliente,"Por favor ingrese su correo electronico: ");
+            salida.println("Porfavor ingrese su contrasena: ");
+            String pass = entrada.readLine();
+            funciones.login(socketCliente,email, pass);
             
-            salida.println("Bienvenido clliente\n\r ");
             
             while (banderaOpciones) {
                 salida.println(" **** ¡Servidor BitLab.-Echotech Elija la opcion que desee! **** \n\r");
@@ -115,6 +115,8 @@ public class ClienteHilo extends Thread {
         } catch (IOException | InterruptedException  ex) {
             Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
