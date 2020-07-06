@@ -57,66 +57,14 @@ public class ClienteHilo extends Thread {
             salida.println("Porfavor ingrese su contrasena: ");
             String pass = entrada.readLine();
             funciones.login(socketCliente,email, pass);
-            
-            
-            while (banderaOpciones) {
-                salida.println(" **** ¡Servidor BitLab.-Echotech Elija la opcion que desee! **** \n\r");
-                salida.println(" ||---------------------------------------------------||\n\r");
-                salida.println(" || 1. Seleccionar gestion de empleados               ||\n\r");
-                salida.println(" || 2. Gestion de roles                               ||\n\r");
-                salida.println(" || 3. Gestion de estado de empleados                 ||\n\r");
-                salida.println(" || 4. Gestion de usuarios.                           ||\n\r");
-                salida.println(" || 5. salir                                          ||\n\r");
-                salida.println(" || ---------------------------------------------------||\n\r");
-                
-                if ((opcionCliente = entrada.readLine()) != null) {
-                    
-                    switch (opcionCliente) {
-                        case "1":
-                            //Gestionando empleados en la BD.
-                            
-                            break;
-                        case "2":
-                            //Gestionando roles de usuario.
-                            
-                            break;
-                        case "3":
-                            //Gestionando estado de los usuarios
-                            Gestiones.gestionDeEstadoEmpleados(socketCliente);
-                            break;
-                            
-                        case "4":
-                            //Gestionando los datos de los usuarios. 
-                            Gestiones.gestionUsuarios(socketCliente);
-                            break;
-                            
-                        case "5":
-                            
-                            salida.print("saliendo del sistema");
-                            banderaOpciones = false;
-                            break;
-                        case "apagar":
-                            
-                            salida.println("esta apagando el servidor \n\r");
 
-                            banderaOpciones = false;
-                            break;
-                            
-                        default:
-                            salida.println("comando desconocido vuelva a escribirlo \n\r");
-                    }
-                }
-                Thread.sleep(1000);
-            }
-            entrada.close();
-            salida.close();
-            socketCliente.close();
             
-        } catch (IOException | InterruptedException  ex) {
-            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+            
         } catch (SQLException ex) {
             Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
